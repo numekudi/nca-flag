@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>破いても自己修復する日章旗 | Growing Neural Cellular Automata</title>
+    <meta
+      name="description"
+      content="2026 年 8 月 13 日、国旗損壊罪が施行。だとすれば、いちばん安全な旗は破いても自分で元に戻る旗。Growing Neural Cellular Automata をブラウザ（Rust / WebAssembly）で動かすインタラクティブデモ。"
+    />
+
+    <!-- OG 画像は scripts/generate_og.py で生成した public/og-v2.png（1200x630）。
+         クローラは相対 URL を解決しないので絶対指定にする（src/App.tsx の
+         SHARE_URL と同じオリジンを指すこと）。
+         ファイル名に -v2 を持たせているのは、X が画像を「画像 URL 単位」で
+         キャッシュし、取得に失敗した URL の結果を長く引きずるため。画像を
+         差し替えたのに X 側に反映されない場合は、ここの連番を上げて別 URL に
+         する（ページ URL にクエリを足しても画像キャッシュは更新されない）。 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nca-flag.primitive-ojisan.com/" />
+    <meta property="og:title" content="破いても自己修復する日章旗" />
+    <meta
+      property="og:description"
+      content="2026 年 8 月 13 日、国旗損壊罪が施行。だとすれば、いちばん安全な旗は破いても自分で元に戻る旗。Growing Neural Cellular Automata をブラウザで動かすインタラクティブデモ。"
+    />
+    <meta
+      property="og:image"
+      content="https://nca-flag.primitive-ojisan.com/og-v2.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="ピクセルで描かれた日章旗と「破いても自己修復する日章旗」の文字"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- X は og:* にフォールバックするが、実際にはカードが小サイズ（画像なし）に
+         なることがあるため twitter:* を明示する。値は og:* と一致させること。 -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="破いても自己修復する日章旗" />
+    <meta
+      name="twitter:description"
+      content="2026 年 8 月 13 日、国旗損壊罪が施行。だとすれば、いちばん安全な旗は破いても自分で元に戻る旗。Growing Neural Cellular Automata をブラウザで動かすインタラクティブデモ。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://nca-flag.primitive-ojisan.com/og-v2.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="ピクセルで描かれた日章旗と「破いても自己修復する日章旗」の文字"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>

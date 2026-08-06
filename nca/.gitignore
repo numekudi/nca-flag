@@ -1,0 +1,9 @@
+artifacts/
+data/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+assets/*.png
+# 学習ターゲットは唯一の教師データなので、再現性のためこれだけは追跡する。
+!assets/hinomaru.png

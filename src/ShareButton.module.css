@@ -1,0 +1,35 @@
+.share {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.125rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  background: #000;
+  border: 1px solid #000;
+  border-radius: 999px;
+}
+
+.share:hover {
+  background: #26292c;
+}
+
+/* 暗背景では黒ベタが沈むので、反転して白ボタンにする。 */
+@media (prefers-color-scheme: dark) {
+  .share {
+    color: #16171d;
+    background: #fff;
+    border-color: #fff;
+  }
+
+  .share:hover {
+    background: #d6d7db;
+  }
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+}

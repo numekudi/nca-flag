@@ -1,0 +1,78 @@
+.demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  /*
+   * 親が align-items: center の flex なら、幅を明示しないと中身（＝操作列の文言）の
+   * 長さで畳まれ、width: 100% の .board もろとも縮む。文言に依存させない。
+   */
+  width: 100%;
+}
+
+.board {
+  width: 100%;
+  max-width: 576px; /* グリッド 72 セル × 8px。これ以上は拡大しない。 */
+  margin-inline: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  /* 透過部分と旗の白地を見分けるための市松模様。 */
+  background:
+    repeating-conic-gradient(
+        color-mix(in srgb, var(--text) 8%, transparent) 0% 25%,
+        transparent 0% 50%
+      )
+      50% / 16px 16px;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* グリッドは正方なので、幅に追随して高さを決める。 */
+  aspect-ratio: 1 / 1;
+  /* 1 セル = 1 ピクセルの拡大なので補間しない。 */
+  image-rendering: pixelated;
+  cursor: crosshair;
+  user-select: none;
+  -webkit-user-select: none;
+  /* iOS Safari の長押しメニュー（画像を保存…）を止める。contextmenu だけでは出る。 */
+  -webkit-touch-callout: none;
+  /* タッチで押しっぱなしにしてもスクロール・ダブルタップズームに取られないようにする。 */
+  touch-action: none;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.error {
+  color: #e5484d;
+}
+
+.button {
+  padding: 0.25rem 0.75rem;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

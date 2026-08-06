@@ -1,0 +1,4 @@
+# SPA なので /robots.txt へのリクエストにも index.html が 200 で返ってしまい、
+# クローラが HTML を robots.txt として解釈する状態だった。実体を置いて解消する。
+User-agent: *
+Allow: /

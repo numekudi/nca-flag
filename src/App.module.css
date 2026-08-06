@@ -1,0 +1,81 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 6vw, 3rem) 1rem 4rem;
+}
+
+.title {
+  /* 大きさ・行間は index.css の h1 に任せる（狭い画面で 2 行に折り返す前提）。 */
+  margin: 0;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* 出発点となる法律の一文。ここだけ本文色を濃くして最初に読ませる。 */
+.lead {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--text-h);
+}
+
+.lead strong {
+  font-weight: 600;
+  /* 「日付」「罪名」「オチ」の 3 語だけ色で拾えるようにする。 */
+  color: var(--accent-flag);
+}
+
+.leadSub {
+  margin: -0.75rem 0 0;
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.hints {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.9;
+  align-self: stretch;
+}
+
+/* 異常増殖の実例。デモの盤面と同じ見た目にして「これも同じ盤面の話」だと分かるようにする。 */
+.figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  width: 100%;
+}
+
+.figureImage {
+  display: block;
+  width: 100%;
+  max-width: 320px; /* 本文の添え物なので、デモ盤面より小さく置く。 */
+  height: auto;
+  aspect-ratio: 1 / 1;
+  /* 72x72 の実サイズを拡大表示するので補間しない（デモの canvas と同じ扱い）。 */
+  image-rendering: pixelated;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.figureCaption {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.footer {
+  font-size: 0.875rem;
+}
+
+.footer a,
+.hints a {
+  color: var(--accent);
+}
