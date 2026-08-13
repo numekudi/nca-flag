@@ -1,5 +1,8 @@
+import { createSignal } from "solid-js";
 import { NcaFlagDemo } from "./nca/NcaFlagDemo";
 import { ShareButton } from "./ShareButton";
+import { ShareModal } from "./ShareModal";
+import { createPageBottomReached } from "./createPageBottomReached";
 import styles from "./App.module.css";
 
 /** 解説記事（本体サイト側）。デモから戻れるようにしておく。 */
@@ -17,6 +20,10 @@ const SHARE_TEXT =
  * ここは「触れること」が主目的なので、説明は最小限にして記事へ送る。
  */
 function App() {
+  const bottomReached = createPageBottomReached();
+  // 一度閉じたら再表示しない（読了 latch は戻らないので、これが唯一の終了条件）。
+  const [modalClosed, setModalClosed] = createSignal(false);
+
   return (
     <main class={styles.page}>
       <h1 class={styles.title}>自己修復する国旗セルオートマトン</h1>
@@ -67,6 +74,14 @@ function App() {
         </a>
         です。
       </p>
+
+      {/* 最後まで読んだ人にだけ、作品の立ち位置を伝えてシェアを促す。 */}
+      <ShareModal
+        open={bottomReached() && !modalClosed()}
+        onClose={() => setModalClosed(true)}
+        shareText={SHARE_TEXT}
+        shareUrl={SHARE_URL}
+      />
     </main>
   );
 }

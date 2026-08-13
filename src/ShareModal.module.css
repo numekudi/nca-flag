@@ -1,0 +1,32 @@
+/* モーダルの掴み。見出しタグではなく段落なので、色と太さで見出しに見せる。 */
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--text-h);
+  text-wrap: balance;
+}
+
+/*
+ * 本文。既定の --text は補足文用に薄いので、読ませる文章にはコントラストが足りない。
+ * 見出し色を使い、行間を広めに取って長文でも行を追えるようにする。
+ */
+.text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--text-h);
+}
+
+.text strong {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
